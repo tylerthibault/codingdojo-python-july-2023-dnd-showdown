@@ -75,14 +75,20 @@
                 <p><span class="font-bold">wins: </span>{{ char.wins }}</p>
                 <p><span class="font-bold">losses: </span>{{ char.losses }}</p>
             </div>
+            <div class="flex items-center w-full justify-evenly">
+                <p><span class="font-bold">health: </span>{{ char.health }}</p>
+                <p><span class="font-bold">strength: </span>{{ char.strength }}</p>
+                <p><span class="font-bold">speed: </span>{{ char.speed }}</p>
+            </div>
             <p><span class="font-bold">race: </span>{{ char.race }}</p>
             <p><span class="font-bold">backstory: </span>{{ char.backstory }}</p>
-            <p><span class="font-bold">has_hat: </span>{{ char.has_hat }}</p>
-            <p><span class="font-bold">likes: </span>{{ char.likes }}</p>
-            <p><span class="font-bold">health: </span>{{ char.health }}</p>
-            <p><span class="font-bold">strength: </span>{{ char.strength }}</p>
-            <p><span class="font-bold">speed: </span>{{ char.speed }}</p>
-            <a href="/standoff/character/add/{{ loop.index0 }}" class="btn btn-primary">Add Character</a>
+            <div class="flex justify-between px-3">
+                <p><span class="font-bold">has_hat: </span>{{ char.has_hat }}</p>
+                <p><span class="font-bold">likes: </span>{{ char.likes }}</p>
+            </div>
+            <div class="flex justify-center">
+                <a href="/standoff/character/add/{{ loop.index0 }}" class="btn btn-primary">Add Character</a>
+            </div>
         </div>
         {% endfor %}
     </div>
