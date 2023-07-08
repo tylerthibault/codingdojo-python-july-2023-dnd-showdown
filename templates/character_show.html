@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- display info -->
+<div class="flex justify-center mt-3">
+    <div class="border rounded-lg flex-col justify-center px-5">
+        <p><span class="font-bold capitalize">name: </span>{{ session['data']['name'] }}</p>
+        <p><span class="font-bold capitalize">class: </span>{{ session['data']['classes'] }}</p>
+        <p><span class="font-bold capitalize">weapon: </span>{{ session['data']['weapons'] }}</p>
+        <p><span class="font-bold capitalize">backstory: </span>{{ session['data']['backstory'] }}</p>
+        <p><span class="font-bold capitalize">has_hat: </span>{{ session['data']['has_hat'] }}</p>
+        <p><span class="font-bold capitalize">likes: </span>{{ session['data']['likes'] }}</p>
+        <div>
+            <a href="/character/reset" class="btn btn-danger">Reset</a>
+            <a href="/character/likes" class="btn">Add a Like</a>
+            <a href="/character/likes/2" class="btn">Add two Likes</a>
+            <a href="/character/likes/10" class="btn">Add ten Likes</a>
+            <a href="/character/likes/50" class="btn">Add 50 Likes</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

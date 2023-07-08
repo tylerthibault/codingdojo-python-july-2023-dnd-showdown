@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            input, .input, select, textarea {
+                @apply shadow shadow-black rounded-lg px-3
+            }
+            .no-style {
+                @apply shadow-none px-0
+            }
+            .btn {
+                @apply shadow rounded-lg px-3 duration-300
+            }
+            .btn-primary {
+                @apply bg-blue-500
+            }
+            .btn-primary:hover {
+                @apply bg-blue-200
+            }
+            .btn-success {
+                @apply bg-green-400
+            }
+            .btn-success:hover {
+                @apply bg-green-200
+            }
+            .btn-danger {
+                @apply bg-red-400
+            }
+            .btn-danger:hover {
+                @apply bg-red-200
+            }
+        }
+      </style>
+    <title>D&D</title>
+</head>
+
+<body>
+    <div class="wrapper flex-col justify-center">
+        <div class="flex flex-col items-center justify-center border-b-2 border-black sticky top-0 bg-white">
+            <h1 class="text-6xl">D&D Showdown</h1>
+            {% include 'nav_bar.html' %}
+        </div>
+
+        {% block content %}
+
+        {% endblock content %}
+
+
+    </div>
+</body>
+
+</html>

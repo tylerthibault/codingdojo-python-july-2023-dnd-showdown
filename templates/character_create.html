@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- D&D form -->
+<div class="flex justify-center mt-3">
+    <form action="/character/create" method="post">
+        <input type="hidden" name="likes" id="likes" value="0">
+        <div class="mb-3">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="mb-3">
+            <label for="races">Races</label>
+            <select name="race" id="race">
+                {% for race in race_types %}
+                    <option value="{{ race }}">{{ race }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="backstory">Backstory</label>
+            <textarea name="backstory" id="backstory" cols="30" rows="10"></textarea>
+        </div>
+        <div class="">
+            <label class="text-xl" for="has_hat">Has Hat</label>
+            <div class="flex gap-3">
+                <div class="flex gap-3">
+                    <p>Yes:</p>
+                    <input class="no-style" type="radio" name="has_hat" id="has_hat" value="Yes">
+                </div>
+                <div class="flex gap-3">
+                    <p>No:</p>
+                    <input class="no-style" type="radio" name="has_hat" id="has_hat" value="No" checked>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-success">Create Character</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+
+
