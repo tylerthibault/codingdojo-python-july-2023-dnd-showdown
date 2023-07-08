@@ -1,9 +1,13 @@
-<div class="flex justify-center p-5">
+<div class="flex flex-col items-center justify-center p-5">
     <div class="flex gap-3">
         <a href="/" class="btn">Home</a>
         <a href="/character/new" class="btn">Add Character</a>
         <a href="/database/load" class="btn">Load Database</a>
         <a href="/database/save" class="btn">Save Database</a>
         <a href="/database/reset" class="btn">Reset Database</a>
+    </div>
+    <div class="my-3 text-center">
+        <p>There is no actual database attached to this. It is using global vars on the server and session to replicate the functionality of a database. therefore, if nobody shows up when you go to the home page, press the reset database button.</p>
+        <p>If you have created a character, then make sure you save you database. This will add your character to the more temparory storage of session. Then if you lose your caracter you can always load database.</p>
     </div>
 </div>
