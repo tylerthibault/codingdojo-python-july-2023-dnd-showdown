@@ -4,38 +4,67 @@
 <div>
     <div class="flex flex-col items-center justify-center my-5">
         <p class="text-xl font-bold">The Showdown</p>
-        <div class="border rounded min-h-5 flex justify-evenly w-full">
+        <div class="border rounded min-h-5 flex justify-evenly w-full h-full">
             {% if FAKE_DB['standoff'] | length > 0 %}
-            {% for character in FAKE_DB['standoff'] %}
+            <div>
+                {% if FAKE_DB['standoff'] | length >= 1 %}
+                {% set c1 = FAKE_DB['standoff'][0] %}
                 <div class="flex flex-col items-center gap-3 w-full">
                     <div class="flex gap-3">
-                        <p>{{ character.name }}</p>
-                        <a href="/standoff/character/remove/{{ loop.index0 }}">❌</a>
+                        <p>{{ c1.name }}</p>
+                        <a href="/standoff/character/remove/0">❌</a>
                     </div>
                     <div class="flex flex-col items-center">
-                        <img class="max-w-[20em] rounded shadow" src="{{ character.img }}" alt="character's image">
+                        <img class="max-w-[20em] rounded shadow" src="{{ c1.img }}" alt="character's image">
                         <div class="flex gap-3 justify-between">
-                            <p><span class="font-bold">wins: </span>{{ character.wins }}</p>
-                            <p><span class="font-bold">losses: </span>{{ character.losses }}</p>
+                            <p><span class="font-bold">wins: </span>{{ c1.wins }}</p>
+                            <p><span class="font-bold">losses: </span>{{ c1.losses }}</p>
                         </div>
                         <div class="flex gap-3">
-                            <p><strong>Health: </strong>{{ character.health }}</p>
-                            <p><strong>strength: </strong>{{ character.strength }}</p>
-                            <p><strong>speed: </strong>{{ character.speed }}</p>
+                            <p><strong>Health: </strong>{{ c1.health }}</p>
+                            <p><strong>strength: </strong>{{ c1.strength }}</p>
+                            <p><strong>speed: </strong>{{ c1.speed }}</p>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+                {% endif %}
+            </div>
+            <div class="flex items-center justify-center">
+                {% if FAKE_DB['standoff'] | length == 2 %}
+                <div class="flex flex-col gap-3">
+                    <a href="/fight" class="btn btn-danger text-2xl font-bold py-3">Fight</a>
+                    <a href="/standoff/character/unload" class="btn btn-primary py-3 text-center font-bold">Unload</a>
+                </div>
+                {% endif %}
+            </div>
+            <div>
+                {% if FAKE_DB['standoff'] | length >= 2 %}
+                {% set c2 = FAKE_DB['standoff'][1] %}
+                <div class="flex flex-col items-center gap-3 w-full">
+                    <div class="flex gap-3">
+                        <p>{{ c2.name }}</p>
+                        <a href="/standoff/character/remove/1">❌</a>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <img class="max-w-[20em] rounded shadow" src="{{ c2.img }}" alt="character's image">
+                        <div class="flex gap-3 justify-between">
+                            <p><span class="font-bold">wins: </span>{{ c2.wins }}</p>
+                            <p><span class="font-bold">losses: </span>{{ c2.losses }}</p>
+                        </div>
+                        <div class="flex gap-3">
+                            <p><strong>Health: </strong>{{ c2.health }}</p>
+                            <p><strong>strength: </strong>{{ c2.strength }}</p>
+                            <p><strong>speed: </strong>{{ c2.speed }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
             {% else %}
-                <p>No Characters</p>
+            <p>No Characters</p>
             {% endif %}
         </div>
-        {% if FAKE_DB['standoff'] | length == 2 %}
-        <div class="">
-            <a href="/fight" class="btn btn-danger">Fight</a>
-            <a href="/standoff/character/unload" class="btn btn-primary">Unload</a>
-        </div>
-        {% endif %}
+
     </div>
     <div class="flex justify-center gap-3 flex-wrap px-10 ">
         {% for char in FAKE_DB['characters'] %}

@@ -73,13 +73,13 @@ def standoff_character_add(index):
 @app.route("/standoff/character/remove/<int:index>")
 def standoff_character_remove(index):
     character = FAKE_DB['standoff'].pop(index)
-    FAKE_DB['characters'] = [character] + FAKE_DB['characters']
+    FAKE_DB['characters'].insert(0, character)
     return redirect("/")
 
 @app.route("/standoff/character/unload")
 def standoff_character_unload():
     for c in FAKE_DB['standoff']:
-        FAKE_DB['characters'].append(c)
+        FAKE_DB['characters'].insert(0, c)
     FAKE_DB['standoff'].clear()
     return redirect("/")
 
