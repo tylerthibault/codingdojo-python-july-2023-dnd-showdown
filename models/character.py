@@ -8,8 +8,8 @@ class Character:
         self.backstory = data['backstory']
         self.has_hat = data['has_hat']
         self.likes = data['likes']
-        self.wins = 0
-        self.losses = 0
+        self.wins = data['wins'] if 'wins' in data else 0
+        self.losses = data['losses'] if 'losses' in data else 0
 
         self.health = data['health']
         self.original_health = data['health']
