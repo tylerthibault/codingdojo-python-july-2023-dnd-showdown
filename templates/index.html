@@ -70,7 +70,7 @@
         {% for char in FAKE_DB['characters'] %}
         <div class="border rounded-lg px-5 py-7 w-1/3">
             <p class="text-xl font-bold text-center">{{ char.name }}</p>
-            <img class="rounded shadow" src="{{ char.img }}" alt="character image">
+            <img class="rounded shadow w-full" src="{{ char.img }}" alt="character image">
             <div class="flex gap-3 justify-between">
                 <p><span class="font-bold">wins: </span>{{ char.wins }}</p>
                 <p><span class="font-bold">losses: </span>{{ char.losses }}</p>
